@@ -11,11 +11,11 @@
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-A **kepler.gl cookbook** — large-scale geospatial visualization in notebooks and apps. Queued in wave-11 (per-node adds). Patterns are planned from the design, not yet from fleet runs. It is intended for Analysts who visualize millions of points and trips interactively. Validate each pattern against your own data, software versions, and operating environment before adopting it.
+A **kepler.gl cookbook** — large-scale geospatial visualization in notebooks and apps. Installed in wave-11 (Node-1 wave11-venv, Wally spot-checked 2026-10-25). First pattern pass written below (design-only, gate 1 target). It is intended for Analysts who visualize millions of points and trips interactively. Validate each pattern against your own data, software versions, and operating environment before adopting it.
 
 ## Repository role and status
 
-**Status:** Active, public — seeding. Pattern passes land in follow-up work from fleet-verified setups; the tables below list what is planned, not what is already written.
+**Status:** Active, public. First pattern pass written (design-only, gate 1 target — none runtime-validated on the fleet yet).
 
 **What this repository is:** kepler.gl patterns — see the table below.
 
@@ -29,32 +29,36 @@ Analysts who visualize millions of points and trips interactively.
 
 ## Prerequisites
 
-- kepler.gl in the fleet Python environment
-- Python 3.11+
-- A point or trip dataset
+- kepler.gl 0.3.7 in Node-1's wave11-venv (`C:\geo-tools\wave11-venv`, Python 3.12.10) — invoke the venv Python by full path, never bare `python` (hermes venv)
+- **setuptools==80.9.0 REQUIRED in the venv** (venv setuptools 84.2.1 dropped `pkg_resources` and kepler.gl fails to import without it — wave-11A proven fix)
+- A point or trip dataset (synthetic data is used throughout)
 
-## Patterns (planned)
+## Patterns
 
-| # | Example | What it will demonstrate |
-|---|---------|--------------------------|
-| 01 | `01-first-map` | A first kepler.gl map from a DataFrame |
-| 02 | `02-trip-layers` | Trip and arc layers for movement data |
-| 03 | `03-config` | Saving and reusing map configurations |
-| 04 | `04-export` | Exporting standalone HTML maps |
+| # | Example | What it demonstrates | Status |
+|---|---------|----------------------|--------|
+| 01 | [examples/01-first-map](examples/01-first-map) | A first kepler.gl map from a DataFrame | Written (design-only) |
+| 02 | [examples/02-trip-layers](examples/02-trip-layers) | Trip and arc layers for movement data | Written (design-only) |
+| 03 | [examples/03-config](examples/03-config) | Saving and reusing map configurations | Written (design-only) |
+| 04 | [examples/04-export](examples/04-export) | Exporting standalone HTML maps | Written (design-only) |
 
 ## Repository layout
 
 ```text
 keplergl-cookbook/
-├── examples/          # pattern passes, landing in follow-up work
+├── examples/
+│   ├── 01-first-map/
+│   ├── 02-trip-layers/
+│   ├── 03-config/
+│   └── 04-export/
 ├── README.md
 └── LICENSE
 ```
 
 ## Roadmap
 
-- First pattern pass: the first two table rows
-- Second pass: the remaining rows, from fleet-verified setups
+- First pattern pass: all four table rows (design-only, gate 1 target)
+- Validation pass: run each pattern against the fleet environment and promote to gate 3
 
 ## Contributing
 
