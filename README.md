@@ -29,6 +29,8 @@ Analysts who visualize millions of points and trips interactively.
 
 ## Prerequisites
 
+Fleet paths and versions below are a historical snapshot from the Oct 2026 creation wave; verify against the current fleet before use.
+
 - kepler.gl 0.3.7 in Node-1's wave11-venv (`C:\geo-tools\wave11-venv`, Python 3.12.10) — invoke the venv Python by full path, never bare `python` (hermes venv)
 - **setuptools==80.9.0 REQUIRED in the venv** (venv setuptools 84.2.1 dropped `pkg_resources` and kepler.gl fails to import without it — wave-11A proven fix)
 - A point or trip dataset (synthetic data is used throughout)
